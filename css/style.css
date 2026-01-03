@@ -318,14 +318,14 @@ body {
 /* Card Front Content - All in one column */
 .benefit-icon {
     font-size: 1.5rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 5px;
     flex-shrink: 0;
 }
 
 .flip-card .card-front h3 {
     font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 5px;
     color: var(--text-primary);
     text-align: center;
     flex-shrink: 0;
@@ -334,10 +334,10 @@ body {
 .flip-card .card-front p {
     color: var(--text-secondary);
     font-size: 0.875rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 5px;
     text-align: center;
-    line-height: 1.4;
-    flex: 1; /* Take available space */
+    line-height: 1;
+    flex: 0; /* Take available space */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -353,8 +353,8 @@ body {
     gap: 0.25rem;
     opacity: 0.8;
     flex-shrink: 0;
-    margin-top: auto;
-    padding-top: 0.5rem;
+    margin-top:0;
+    padding-top: 0rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
