@@ -252,13 +252,17 @@ body {
    ============================================ */
 
 /* Flip Card Container - Starts with normal height */
+
+
 .flip-card {
     perspective: 1000px;
-    height: 250px; /* Normal height */
+    /* Change height to min-height to allow content to grow if needed */
+    min-height: 250px; 
+    height: auto; 
     width: 100%;
     margin-bottom: 1rem;
     transition: height 0.3s ease-in-out;
-    overflow: hidden;
+    /* Remove overflow: hidden; so it doesn't clip shadows or content during transition */
 }
 
 /* When flipped, expand height */
@@ -309,10 +313,12 @@ body {
 
 /* Card Front - Fixed height content */
 .flip-card .card-front {
-    background: var(--bg-secondary);
+   background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
-    justify-content: space-between; /* Space out content */
+    /* Allow it to center content if there is extra space */
+    justify-content: center; 
+    gap: 10px;
 }
 
 /* Card Front Content - All in one column */
@@ -332,16 +338,14 @@ body {
 }
 
 .flip-card .card-front p {
-    color: var(--text-secondary);
+   color: var(--text-secondary);
     font-size: 0.875rem;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     text-align: center;
-    line-height: 1;
-    flex: 0; /* Take available space */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 0.5rem;
+    line-height: 1.4; /* Increased from 1 for better readability when wrapping */
+    flex: unset; /* Remove flex: 0 to let it behave naturally */
+    display: block; /* Changed from flex for better text wrapping */
+    padding: 0 0.25rem;
 }
 
 .hint-text {
@@ -689,38 +693,35 @@ body.dark-mode .hint-text {
     hyphens: auto;
 }
 
-/* Responsive adjustments */
 @media (max-width: 480px) {
     .flip-card {
-        height: 330px; /* Slightly shorter on small screens */
+        /* Increase base height for mobile front cards */
+        min-height: 280px; 
     }
     
+    /* Ensure flipped cards have enough room for forms on small screens */
     .flip-card.flipped {
-        height: 300px;
+        height: 400px !important; /* Forces enough space for the form */
+    }
+    
+    #ovulation-benefit-card.flipped {
+        height: 380px !important;
+    }
+
+    #baby-tracking-card.flipped {
+        height: 450px !important; /* Forms need more vertical space on narrow phones */
     }
     
     #articles-benefit-card.flipped {
-        height: 360px;
+        height: 500px !important;
     }
     
-    .categories-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .category-btn {
-        min-height: 55px;
-        padding: 0.375rem;
-    }
-    
-    .category-icon {
-        font-size: 1rem;
-    }
-    
-    .category-label {
-        font-size: 0.6rem;
+    /* Prevent the icon from being too large on small screens */
+    .benefit-icon {
+        font-size: 1.25rem;
+        margin-top: 5px;
     }
 }
-
 /* For very tall content in pregnancy form */
 #baby-tracking-card .calculator-form {
     min-height: 220px; /* Ensure enough space */
@@ -1827,134 +1828,3 @@ body.dark-mode .back-btn {
 }
 
 
-/* ============================================
-   GLOBAL RESPONSIVE IMPROVEMENTS
-   ============================================ */
-
-/* Base (Mobile First – already good) */
-.visitor-benefits {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
-
-/* Prevent cards from stretching weirdly */
-.flip-card {
-    height: auto;
-    min-height: 250px;
-}
-
-/* ============================================
-   SMALL DEVICES (phones < 480px)
-   ============================================ */
-@media (max-width: 479px) {
-    .app-container {
-        max-width: 100%;
-        border: none;
-    }
-
-    .flip-card.flipped {
-        height: auto;
-    }
-
-    .categories-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* ============================================
-   TABLETS (≥ 480px)
-   ============================================ */
-@media (min-width: 480px) {
-    .visitor-benefits {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .app-container {
-        max-width: 720px;
-        margin: 0 auto;
-    }
-
-    .flip-card {
-        min-height: 260px;
-    }
-
-    .flip-card.flipped {
-        min-height: 320px;
-    }
-
-    .categories-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* ============================================
-   LAPTOPS (≥ 768px)
-   ============================================ */
-@media (min-width: 768px) {
-    .visitor-benefits {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .app-container {
-        max-width: 960px;
-    }
-
-    .flip-card {
-        min-height: 280px;
-    }
-
-    .flip-card.flipped {
-        min-height: 340px;
-    }
-
-    .categories-grid {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-/* ============================================
-   DESKTOPS & LARGE SCREENS (≥ 1024px)
-   ============================================ */
-@media (min-width: 1024px) {
-    .visitor-benefits {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem;
-    }
-
-    .app-container {
-        max-width: 1200px;
-    }
-
-    .flip-card {
-        min-height: 300px;
-    }
-
-    .flip-card.flipped {
-        min-height: 360px;
-    }
-
-    .categories-grid {
-        grid-template-columns: repeat(6, 1fr);
-    }
-}
-
-/* ============================================
-   ULTRA-WIDE SCREENS (≥ 1440px)
-   ============================================ */
-@media (min-width: 1440px) {
-    .app-container {
-        max-width: 1400px;
-    }
-
-    .visitor-benefits {
-        gap: 2rem;
-    }
-}
-
-
-@media (hover: hover) {
-    .flip-card:hover .card-inner {
-        transform: scale(1.01);
-    }
-}
