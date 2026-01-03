@@ -66,9 +66,10 @@ body {
     background: var(--bg-color);
     position: relative;
     overflow-x: hidden;
+
+    padding-top: 72px; /* 🔹 adjust based on header height */
 }
 
-/* Header */
 .app-header {
     display: flex;
     justify-content: space-between;
@@ -76,11 +77,17 @@ body {
     padding: 1rem;
     background: var(--header-bg);
     border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
 
+    position: fixed;   /* 🔹 change from sticky to fixed */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+
+    z-index: 1000;
+}
+t
 .app-logo {
     display: flex;
     align-items: center;
@@ -330,22 +337,15 @@ body {
 
 .flip-card .card-front h3 {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 5px;
     color: var(--text-primary);
     text-align: center;
-    flex-shrink: 0;
+    flex-shrink: 1;
 }
-
+/* 
 .flip-card .card-front p {
-   color: var(--text-secondary);
-    font-size: 0.875rem;
-    margin-bottom: 10px;
-    text-align: center;
-    line-height: 1.4; /* Increased from 1 for better readability when wrapping */
-    flex: unset; /* Remove flex: 0 to let it behave naturally */
-    display: block; /* Changed from flex for better text wrapping */
-    padding: 0 0.25rem;
+   
 }
 
 .hint-text {
@@ -364,7 +364,7 @@ body {
 
 body.dark-mode .hint-text {
     border-top-color: rgba(255, 255, 255, 0.1);
-}
+} */
 
 /* Card Back - Expanded height content */
 .flip-card .card-back {
