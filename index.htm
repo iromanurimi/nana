@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ha" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#7c3aed">
+    <meta name="description" content="Taimakon Ciki da Rayuwa: Aikace-aikacen Hausa don uwaye masu juna biyu da iyaye">
+    <title>Taimakon Ciki - Hausa Pregnancy & Parenting App</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Icons -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/icon-192.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Combined CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- App Container -->
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="app-logo">
+                    <img class="logo-icon" src="assets/images/logon.svg" alt="Ciki da Raino Logo">
+                    <h3 class="logo-text">Ciki da Raino</h3>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="icon-btn" id="theme-toggle" aria-label="Canza yanayi">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn notification-btn" id="notification-btn" aria-label="Sanarwa">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <span class="notification-badge">3</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="welcome-section">
+                <div class="welcome-card visitor-welcome">
+                    <!-- Visitor Header -->
+                    <div class="visitor-header">
+                        <div class="header-content">
+                            <h1 class="welcome-title">Barka Da Zuwa!</h1>
+                            <p class="welcome-subtitle">Shawarwari Masu Amfani Da Ciki Da Kula Da Jariri A Harshen Hausa
+                            </p>
+                        </div>
+                        <div class="header-decoration">
+                            <span class="decoration-icon">🤰</span>
+                            <span class="decoration-icon">👶</span>
+                            <span class="decoration-icon">💖</span>
+                        </div>
+                    </div>
+
+                    <!-- Visitor Benefits Grid -->
+                    <div class="visitor-benefits">
+                        <!-- Ovulation Calculator Card -->
+                        <div class="benefit-card flip-card" id="ovulation-benefit-card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <div class="benefit-icon free-icon">📅</div>
+                                    <h3>Lissafa Ovulation</h3>
+                                    <p>Lissafa ranar ovulation da safe period daga kwanakin haila na karshe</p>
+                                    <div class="hint-text">
+                                        <span>ⓘ</span> Danna don lissafawa
+                                    </div>
+                                </div>
+
+                                <div class="card-back">
+                                    <div class="back-header">
+                                        <button class="back-btn" type="button">←</button>
+                                        <h3 class="back-title">Lissafa Ovulation</h3>
+                                    </div>
+                                    <form id="ovulation-form" class="calculator-form">
+                                        <div class="form-content">
+                                            <div class="form-group">
+                                                <label for="lmp-date">Ranar Haila na Ƙarshe (LMP):</label>
+                                                <input type="date" id="lmp-date" name="lmp-date" required
+                                                    class="form-input">
+                                            </div>
+                                            <div class="form-group">
+                                                <select id="cycle-length" name="cycle-length" class="form-select"
+                                                    required>
+                                                    <option value="" selected>Zaɓi tsawon lokaci</option>
+                                                    <option value="21">21 (Gajere)</option>
+                                                    <option value="28">28 (Matsakaici)</option>
+                                                    <option value="35">35</option>
+                                                    <option value="45">45 (Dogo)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="calculate-btn-container">
+                                            <button type="submit" class="calculate-btn">Yi Lissafi</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Baby Tracking Card -->
+                        <div class="benefit-card flip-card" id="baby-tracking-card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <div class="benefit-icon offline-icon">📊</div>
+                                    <h3>Bibiyar Ciki</h3>
+                                    <p>Lissafa matakin ciki, ranar haihuwa, da ci gaban jariri</p>
+                                    <div class="hint-text">
+                                        <span>ⓘ</span> Danna don lissafawa
+                                    </div>
+                                </div>
+
+                                <div class="card-back">
+                                    <div class="back-header">
+                                        <button class="back-btn" type="button">←</button>
+                                        <h3 class="back-title">Bibiyar Ciki</h3>
+                                    </div>
+                                    <form id="pregnancy-form" class="calculator-form">
+                                        <div class="form-content">
+                                            <div class="form-group">
+                                                <label>Zaɓi Lissafin:</label>
+                                                <div class="calculation-type">
+                                                    <button type="button" class="type-btn active"
+                                                        data-type="lmp">LMP</button>
+                                                    <button type="button" class="type-btn" data-type="edd">EDD</button>
+                                                </div>
+                                            </div>
+                                            <div id="lmp-input-container" class="input-container active">
+                                                <div class="form-group">
+                                                    <label for="pregnancy-lmp-date">Ranar Haila na Ƙarshe (LMP):</label>
+                                                    <input type="date" id="pregnancy-lmp-date" class="form-input"
+                                                        required>
+                                                </div>
+                                            </div>
+                                            <div id="edd-input-container" class="input-container">
+                                                <div class="form-group">
+                                                    <label for="pregnancy-edd-date">Ranar Haihuwa (EDD):</label>
+                                                    <input type="date" id="pregnancy-edd-date" class="form-input"
+                                                        required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calculate-btn-container">
+                                            <button type="submit" class="calculate-btn">Lissafa Ciki</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Articles Card -->
+                        <div class="benefit-card flip-card" id="articles-benefit-card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <div class="benefit-icon community-icon">📚</div>
+                                    <h3>Articles</h3>
+                                    <p>Karanta shawarwari masu amfani game da ciki da kula da jariri</p>
+                                    <div class="hint-text">
+                                        <span>ⓘ</span> Danna don duba labarai
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <div class="back-header">
+                                        <button class="back-btn" type="button">←</button>
+                                        <h3 class="back-title">Zaɓi Sashe</h3>
+                                    </div>
+                                    <div class="categories-grid">
+                                        <button class="category-btn active" data-category="all">
+                                            <span class="category-icon">📰</span>
+                                            <span class="category-label">Duka</span>
+                                        </button>
+                                        <button class="category-btn" data-category="pregnancy">
+                                            <span class="category-icon">🤰</span>
+                                            <span class="category-label">Ciki</span>
+                                        </button>
+                                        <button class="category-btn" data-category="baby-care">
+                                            <span class="category-icon">👶</span>
+                                            <span class="category-label">Kula da Jariri</span>
+                                        </button>
+                                        <button class="category-btn" data-category="health">
+                                            <span class="category-icon">💊</span>
+                                            <span class="category-label">Lafiya</span>
+                                        </button>
+                                        <button class="category-btn" data-category="nutrition">
+                                            <span class="category-icon">🍎</span>
+                                            <span class="category-label">Abinci mai gina jiki</span>
+                                        </button>
+                                        <button class="category-btn" data-category="postpartum">
+                                            <span class="category-icon">🔄</span>
+                                            <span class="category-label">Bayan Haihuwa</span>
+                                        </button>
+                                        <button class="category-btn" data-category="tips">
+                                            <span class="category-icon">💡</span>
+                                            <span class="category-label">Shawarwari</span>
+                                        </button>
+                                        <button class="category-btn" data-category="symptoms">
+                                            <span class="category-icon">🤒</span>
+                                            <span class="category-label">Alamun Ciki</span>
+                                        </button>
+                                    </div>
+                                    <div class="search-container">
+                                        <input type="text" id="articles-search" placeholder="Nemo labarai..."
+                                            class="search-input">
+                                        <button class="search-btn" type="button">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <circle cx="11" cy="11" r="8" />
+                                                <path d="m21 21-4.35-4.35" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Articles Content Section -->
+                    <div id="articles-content-section" class="articles-content-section" style="display: none;">
+                        <div class="articles-header">
+                            <h3 id="articles-category-title">Duka Labarai</h3>
+                            <span id="articles-count" class="articles-count">0 labarai</span>
+                        </div>
+                        <div id="articles-loading" class="articles-loading">
+                            <div class="loading-spinner"></div>
+                            <p>Ana lodin labarai...</p>
+                        </div>
+                        <div id="articles-grid" class="articles-grid"></div>
+                        <div id="no-articles-message" class="no-articles-message" style="display: none;">
+                            <div class="empty-state-icon">📚</div>
+                            <h4>Babu labarai</h4>
+                            <p>Babu labarai da suka dace da zaɓin ku. Gwada wani sashe ko bincike.</p>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="visitor-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10,000+</span>
+                            <span class="stat-label">Uwaye masu juna biyu</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50,000+</span>
+                            <span class="stat-label">Tambayoyin da aka amsa</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Kyauta gabaɗaya</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Chatbot a kan aiki</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Ovulation Results Modal -->
+        <div id="ovulation-results-modal" class="calculator-modal" style="display: none;">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <div class="modal-header ovulation-header">
+                    <h3>📅 Sakamakon Lissafin Ovulation</h3>
+                    <button class="modal-close">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="results-header-card">
+                        <div class="header-icon">📅</div>
+                        <h4 class="results-title">Sakamakon Lissafin Ovulation</h4>
+                        <p class="results-subtitle" id="results-date-range"></p>
+                    </div>
+                    <div class="result-card-highlight ovulation-day-card">
+                        <div class="result-icon">🔥</div>
+                        <div class="result-label">Ranar Ovulation</div>
+                        <div id="modal-ovulation-day" class="result-value"></div>
+                        <div class="result-note">Mafi yawan lokacin haihuwa</div>
+                    </div>
+                    <div class="results-grid">
+                        <div class="result-card fertile-card">
+                            <div class="result-icon">💖</div>
+                            <div class="result-label">Fertile Window</div>
+                            <div id="modal-fertile-window" class="result-value"></div>
+                            <div class="result-duration">(kwanaki 6)</div>
+                        </div>
+                        <div class="result-card safe-card">
+                            <div class="result-icon">🛡️</div>
+                            <div class="result-label">Safe Period</div>
+                            <div id="modal-safe-period" class="result-value"></div>
+                            <div class="result-duration">(ba tare da ovulation ba)</div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h6 class="info-title">💡 Bayani Mai Muhimmanci</h6>
+                        <p class="info-text">Wannan lissafin hanya ce ta kiyasin kawai. Ba ta canza matsayin magani ba.
+                        </p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="secondary-btn" id="save-results-btn">
+                            <span class="btn-icon">💾</span>
+                            <span class="btn-text">Ajiye</span>
+                        </button>
+                        <button class="primary-btn" id="share-results-btn">
+                            <span class="btn-icon">📤</span>
+                            <span class="btn-text">Raba</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregnancy Results Modal -->
+        <div id="pregnancy-results-modal" class="calculator-modal" style="display: none;">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <div class="modal-header pregnancy-header">
+                    <h3>🤰 Sakamakon Bibiyar Ciki</h3>
+                    <button class="modal-close">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="overview-card primary-card">
+                        <div class="overview-icon">📅</div>
+                        <div class="overview-content">
+                            <h3>Yau (Today)</h3>
+                            <div class="overview-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value" id="current-week">0</span>
+                                    <span class="stat-label">Makonni</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value" id="current-day">0</span>
+                                    <span class="stat-label">Kwanaki</span>
+                                </div>
+                            </div>
+                            <p class="overview-text" id="baby-size-text">Girman jariri: Ana lissafawa...</p>
+                        </div>
+                    </div>
+                    <div class="overview-card accent-card">
+                        <div class="overview-icon">🎯</div>
+                        <div class="overview-content">
+                            <h3>Ranar Haihuwa (EDD)</h3>
+                            <div class="due-date-info">
+                                <span class="due-date" id="due-date-text">Ana lissafawa...</span>
+                                <span class="countdown" id="weeks-left-text">Saura makonni: 0</span>
+                            </div>
+                            <div class="progress-mini">
+                                <div class="progress-bar-mini" id="pregnancy-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pregnancy-summary">
+                        <div class="summary-item">
+                            <span class="summary-icon">📊</span>
+                            <div class="summary-content">
+                                <span class="summary-label">Mako na</span>
+                                <span class="summary-value" id="week-display">0</span>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-icon">🗓️</span>
+                            <div class="summary-content">
+                                <span class="summary-label">Wata na</span>
+                                <span class="summary-value" id="month-display">0</span>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-icon">🔄</span>
+                            <div class="summary-content">
+                                <span class="summary-label">Zango na</span>
+                                <span class="summary-value" id="trimester-display">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="secondary-btn" id="save-pregnancy-btn">💾 Ajiye</button>
+                        <button class="primary-btn" id="share-pregnancy-btn">📤 Raba</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Detail Modal -->
+        <div id="article-detail-modal" class="article-modal" style="display: none;">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <div class="article-detail-header">
+                    <button class="article-back-btn" type="button">←</button>
+                    <h3 class="article-detail-title"></h3>
+                </div>
+                <div class="article-meta">
+                    <span class="article-category-badge"></span>
+                    <span class="article-date"></span>
+                    <span class="article-read-time"></span>
+                </div>
+                <div class="article-body"></div>
+                <div class="article-actions">
+                    <button class="article-action-btn" data-action="share">
+                        <span class="action-icon">📤</span>
+                        <span class="action-text">Raba</span>
+                    </button>
+                    <button class="article-action-btn" data-action="save">
+                        <span class="action-icon">💾</span>
+                        <span class="action-text">Ajiye</span>
+                    </button>
+                    <button class="article-action-btn" data-action="speak">
+                        <span class="action-icon">🔊</span>
+                        <span class="action-text">Karanta</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Toast -->
+        <div id="error-toast" class="error-toast" style="display: none;">
+            <div class="toast-content">
+                <span class="toast-icon">⚠️</span>
+                <span class="toast-message"></span>
+            </div>
+        </div>
+
+        <!-- Chatbot Page -->
+        <div id="chatbot-page" class="page-content" style="display: none;">
+            <!-- Chatbot Header -->
+            <header class="chatbot-header">
+                <div class="header-left">
+                    <button class="back-btn" id="chat-back-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="chatbot-title">
+                        <h2>Taimakon Ciki AI</h2>
+                        <div class="chatbot-status">
+                            <span class="status-dot"></span>
+                            <span class="status-text">A kan aiki</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="icon-btn" id="clear-chat-btn" title="Share tattaunawa">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M3 6h18"></path>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" id="theme-toggle-chat" title="Canza yanayi">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Chat Container -->
+            <div class="chat-container">
+                <!-- Messages Container -->
+                <div class="messages-container" id="messages-container">
+                    <!-- Initial bot message -->
+                    <div class="message bot-message">
+                        <div class="message-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-content">
+                            <p>Sannu! Ina taimakon Ciki da Raino. Zan iya amsa tambayoyin ku game da ciki, kula da
+                                jariri, lafiya, da dai sauransu a cikin Hausa. Me kuke bukata?</p>
+                            <div class="message-time">Yanzu</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Questions -->
+                <div class="quick-questions">
+                    <h4>Tambayoyin da suka fi yawa:</h4>
+                    <div class="question-chips">
+                        <button class="question-chip" data-question="Menene alamun farko na ciki?">
+                            <span class="chip-icon">🤰</span>
+                            Alamun ciki
+                        </button>
+                        <button class="question-chip" data-question="Menene abinci mai gina jiki ga uwa mai ciki?">
+                            <span class="chip-icon">🍎</span>
+                            Abinci mai gina jiki
+                        </button>
+                        <button class="question-chip" data-question="Yaya zan sha ruwa yayin ciki?">
+                            <span class="chip-icon">💧</span>
+                            Ruwa a ciki
+                        </button>
+                        <button class="question-chip" data-question="Menene alamun haihuwa?">
+                            <span class="chip-icon">👶</span>
+                            Alamun haihuwa
+                        </button>
+                        <button class="question-chip" data-question="Yaya zan kula da jariri bayan haihuwa?">
+                            <span class="chip-icon">🛁</span>
+                            Kula da jariri
+                        </button>
+                        <button class="question-chip" data-question="Menene cututtukan ciki?">
+                            <span class="chip-icon">💊</span>
+                            Cututtukan ciki
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="chat-input-area">
+                <div class="input-wrapper">
+                    <button class="input-action-btn voice-btn" id="voice-btn" title="Mai sauti">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                            <path d="M12 19v4"></path>
+                            <path d="M8 23h8"></path>
+                        </svg>
+                    </button>
+
+                    <input type="text" id="chat-input" placeholder="Rubuta tambayar ku anan..." autocomplete="off"
+                        maxlength="500">
+
+                    <button class="input-action-btn send-btn" id="send-btn" title="Aika">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 2L11 13"></path>
+                            <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Voice Listening Indicator -->
+            <div class="voice-listening" id="voice-listening" style="display: none;">
+                <div class="listening-content">
+                    <div class="listening-animation">
+                        <div class="sound-wave"></div>
+                        <div class="sound-wave"></div>
+                        <div class="sound-wave"></div>
+                    </div>
+                    <p>Ana sauraren muryar ku...</p>
+                    <button class="stop-listening-btn" id="stop-listening-btn">Daina saurare</button>
+                </div>
+            </div>
+
+            <!-- Typing Indicator -->
+            <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                <div class="typing-dots">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+                <span class="typing-text">Taimakon Ciki yana rubutu...</span>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#home" class="nav-item active" data-page="home">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Gida</span>
+            </a>
+            <a href="#chat" class="nav-item" data-page="chat">
+                <span class="nav-icon">💬</span>
+                <span class="nav-label">Chat</span>
+            </a>
+            <a href="#track" class="nav-item" data-page="track">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">Asibiti</span>
+            </a>
+            <a href="#learn" class="nav-item" data-page="learn">
+                <span class="nav-icon">📚</span>
+                <span class="nav-label">Kasuwa</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Single JavaScript file (temporary for testing) -->
+    <script src="assets/js/app-complete.js"></script>
+</body>
+
+</html>
