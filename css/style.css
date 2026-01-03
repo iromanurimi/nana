@@ -238,8 +238,8 @@ body {
     font-size: 0.875rem;
     margin-bottom: 1rem;
 }
-
-/* .hint-text {
+/* 
+.hint-text {
     color: var(--primary-color);
     font-size: 0.75rem;
     display: flex;
@@ -254,7 +254,7 @@ body {
 /* Flip Card Container - Starts with normal height */
 .flip-card {
     perspective: 1000px;
-    height: 300px; /* Normal height */
+    height: 250px; /* Normal height */
     width: 100%;
     margin-bottom: 1rem;
     transition: height 0.3s ease-in-out;
@@ -1827,4 +1827,134 @@ body.dark-mode .back-btn {
 }
 
 
+/* ============================================
+   GLOBAL RESPONSIVE IMPROVEMENTS
+   ============================================ */
 
+/* Base (Mobile First – already good) */
+.visitor-benefits {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* Prevent cards from stretching weirdly */
+.flip-card {
+    height: auto;
+    min-height: 250px;
+}
+
+/* ============================================
+   SMALL DEVICES (phones < 480px)
+   ============================================ */
+@media (max-width: 479px) {
+    .app-container {
+        max-width: 100%;
+        border: none;
+    }
+
+    .flip-card.flipped {
+        height: auto;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ============================================
+   TABLETS (≥ 480px)
+   ============================================ */
+@media (min-width: 480px) {
+    .visitor-benefits {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .app-container {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .flip-card {
+        min-height: 260px;
+    }
+
+    .flip-card.flipped {
+        min-height: 320px;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ============================================
+   LAPTOPS (≥ 768px)
+   ============================================ */
+@media (min-width: 768px) {
+    .visitor-benefits {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .app-container {
+        max-width: 960px;
+    }
+
+    .flip-card {
+        min-height: 280px;
+    }
+
+    .flip-card.flipped {
+        min-height: 340px;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* ============================================
+   DESKTOPS & LARGE SCREENS (≥ 1024px)
+   ============================================ */
+@media (min-width: 1024px) {
+    .visitor-benefits {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+
+    .app-container {
+        max-width: 1200px;
+    }
+
+    .flip-card {
+        min-height: 300px;
+    }
+
+    .flip-card.flipped {
+        min-height: 360px;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* ============================================
+   ULTRA-WIDE SCREENS (≥ 1440px)
+   ============================================ */
+@media (min-width: 1440px) {
+    .app-container {
+        max-width: 1400px;
+    }
+
+    .visitor-benefits {
+        gap: 2rem;
+    }
+}
+
+
+@media (hover: hover) {
+    .flip-card:hover .card-inner {
+        transform: scale(1.01);
+    }
+}
