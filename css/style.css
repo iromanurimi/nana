@@ -239,13 +239,13 @@ body {
     margin-bottom: 1rem;
 }
 
-.hint-text {
+/* .hint-text {
     color: var(--primary-color);
     font-size: 0.75rem;
     display: flex;
     align-items: center;
     gap: 0.25rem;
-}
+} */
 
 /* ============================================
    EXPANDABLE FLIP CARD STYLES
@@ -254,7 +254,7 @@ body {
 /* Flip Card Container - Starts with normal height */
 .flip-card {
     perspective: 1000px;
-    height: 250px; /* Normal height */
+    height: 300px; /* Normal height */
     width: 100%;
     margin-bottom: 1rem;
     transition: height 0.3s ease-in-out;
@@ -1825,5 +1825,6 @@ body.dark-mode .back-btn {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-secondary);
 }
+
 
 
