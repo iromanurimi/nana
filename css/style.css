@@ -689,46 +689,15 @@ body.dark-mode .hint-text {
     hyphens: auto;
 }
 
-
-@media (max-width: 480px) {
-
-    .flip-card {
-        height: auto !important;
-        min-height: 260px !important;
-        overflow: visible !important;
-    }
-
-    .flip-card.flipped {
-        height: auto !important;
-        min-height: 320px !important;
-    }
-
-    .flip-card .card-front {
-        min-height: 260px !important;
-        padding: 1rem !important;
-    }
-
-    .flip-card .card-front p {
-        font-size: 0.85rem !important;
-        line-height: 1.4 !important;
-    }
-
-    .flip-card .card-front .hint-text {
-        font-size: 0.7rem !important;
-        padding-top: 0.5rem !important;
-    }
-}
-
-
 /* Responsive adjustments */
-@media (max-width: 380px) {
-    /*.flip-card {
-        height: 300px; /* Slightly shorter on small screens */
+@media (max-width: 480px) {
+    .flip-card {
+        height: 330px; /* Slightly shorter on small screens */
     }
     
-  /*  .flip-card.flipped {
+    .flip-card.flipped {
         height: 300px;
-    }*/
+    }
     
     #articles-benefit-card.flipped {
         height: 360px;
@@ -1856,6 +1825,5 @@ body.dark-mode .back-btn {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-secondary);
 }
-
 
 
