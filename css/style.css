@@ -67,7 +67,7 @@ body {
     position: relative;
     overflow-x: hidden;
 
-    padding-top: 72px; /* 🔹 adjust based on header height */
+    padding-top: 80px; /* 🔹 adjust based on header height */
 }
 
 .app-header {
@@ -1748,13 +1748,22 @@ body.dark-mode .back-btn {
 .bottom-nav {
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 50%;
     width: 100%;
     background: var(--header-bg);
     border-top: 1px solid var(--border-color);
     display: flex;
     padding: 0.75rem 1rem;
-    z-index: 100;
+
+    
+    position: fixed;   /* 🔹 change from sticky to fixed */
+
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+
+    z-index: 1000;
 }
 
 .nav-item {
