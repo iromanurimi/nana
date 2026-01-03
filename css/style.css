@@ -1,4 +1,13 @@
-/* Updated Base styles based on Logo */
+
+/* @import url('/assets/css/base/main.css');
+@import url('/assets/css/base/reset.css');
+@import url('/assets/css/base/variable.css');
+
+@import url('/assets/css/componets/header.css');
+@import url('/assets/css/componets/welcome.css');
+@import url('/assets/css/componets/cards.css');
+@import url('/assets/css/componets/flipcards.css'); */
+
 :root {
     /* Logo Primary: Cyan/Teal */
     --primary-color: #34b3d1;       /* The exact logo color */
@@ -45,6 +54,8 @@ body.dark-mode {
     --header-bg: #0f172a;
     --border-color: #334155;
 }
+
+/* Updated Base styles based on Logo */
 * {
     margin: 0;
     padding: 0;
@@ -87,7 +98,7 @@ body {
 
     z-index: 1000;
 }
-t
+
 .app-logo {
     display: flex;
     align-items: center;
@@ -148,6 +159,18 @@ t
     justify-content: center;
 }
 
+.app-container {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: var(--bg-color);
+    position: relative;
+    overflow-x: hidden;
+
+    padding-top: 80px; /* 🔹 adjust based on header height */
+}
+
+
 /* Welcome Section */
 .welcome-section {
     padding: 1rem;
@@ -203,6 +226,7 @@ t
     50% { transform: translateY(-5px); }
 }
 
+
 /* Visitor Benefits Grid */
 .visitor-benefits {
     display: grid;
@@ -210,6 +234,7 @@ t
     gap: 1rem;
     margin-bottom: 2rem;
 }
+
 
 .benefit-card {
     background: var(--bg-secondary);
@@ -245,21 +270,19 @@ t
     font-size: 0.875rem;
     margin-bottom: 1rem;
 }
-/* 
+
 .hint-text {
     color: var(--primary-color);
     font-size: 0.75rem;
     display: flex;
     align-items: center;
     gap: 0.25rem;
-} */
+} 
+
 
 /* ============================================
    EXPANDABLE FLIP CARD STYLES
    ============================================ */
-
-/* Flip Card Container - Starts with normal height */
-
 
 .flip-card {
     perspective: 1000px;
@@ -312,7 +335,7 @@ t
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: var(--radius-lg);
-    padding: 1.25rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -325,16 +348,15 @@ t
     color: var(--text-primary);
     /* Allow it to center content if there is extra space */
     justify-content: center; 
-    gap: 10px;
 }
 
 /* Card Front Content - All in one column */
-.benefit-icon {
+/* .benefit-icon {
     font-size: 1.5rem;
     margin-bottom: 5px;
     flex-shrink: 0;
-}
-
+} */
+/* 
 .flip-card .card-front h3 {
     font-size: 1rem;
     font-weight: 400;
@@ -342,29 +364,24 @@ t
     color: var(--text-primary);
     text-align: center;
     flex-shrink: 1;
-}
-/* 
-.flip-card .card-front p {
-   
-}
+} */
 
-.hint-text {
+
+
+ .hint-text {
     color: var(--primary-color);
     font-size: 0.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.25rem;
     opacity: 0.8;
-    flex-shrink: 0;
-    margin-top:0;
-    padding-top: 0rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+   
+    
 }
 
 body.dark-mode .hint-text {
     border-top-color: rgba(255, 255, 255, 0.1);
-} */
+}  
 
 /* Card Back - Expanded height content */
 .flip-card .card-back {
@@ -565,6 +582,10 @@ body.dark-mode .hint-text {
     cursor: not-allowed;
 }
 
+
+
+
+
 /* Categories Grid in Articles Card */
 .categories-grid {
     display: grid;
@@ -705,7 +726,7 @@ body.dark-mode .hint-text {
     }
     
     #ovulation-benefit-card.flipped {
-        height: 380px !important;
+        height: 1000px !important;
     }
 
     #baby-tracking-card.flipped {
